@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع SGN - رخص مايكروسوفت السحابية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header & Navigation -->
+    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="bg-blue-600 p-2.5 rounded-xl shadow-inner text-white font-bold text-xl tracking-wider">SGN</div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight" data-en="SGN Microsoft Cloud Project" data-ar="مشروع SGN السحابي">مشروع SGN السحابي</h1>
+                    <p class="text-xs text-slate-400" data-en="Ministry of Digital Economy and Entrepreneurship" data-ar="وزارة الاقتصاد الرقمي والريادة">وزارة الاقتصاد الرقمي والريادة</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 space-x-reverse text-sm font-medium">
+                <button onclick="switchTab('project-info')" id="nav-project-info" class="nav-btn px-4 py-2 rounded-lg transition-all bg-blue-600 text-white shadow-sm" data-en="Project Info" data-ar="معلومات عن المشروع">معلومات عن المشروع</button>
+                <button onclick="switchTab('m365-licenses')" id="nav-m365-licenses" class="nav-btn px-4 py-2 rounded-lg transition-all text-slate-300 hover:bg-slate-800 hover:text-white" data-en="M365 Licenses" data-ar="رخص مايكروسوفت 365">رخص مايكروسوفت 365</button>
+                <button onclick="switchTab('survey')" id="nav-survey" class="nav-btn px-4 py-2 rounded-lg transition-all text-slate-300 hover:bg-slate-800 hover:text-white" data-en="License Survey" data-ar="استبيان الرخص">استبيان الرخص</button>
+                <button onclick="switchTab('calculator')" id="nav-calculator" class="nav-btn px-4 py-2 rounded-lg transition-all text-slate-300 hover:bg-slate-800 hover:text-white" data-en="Project Calculator" data-ar="حاسبة المشروع">حاسبة المشروع</button>
+            </nav>
+
+            <!-- Language Toggle -->
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3.5 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+                    <span id="lang-label">English</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation bar -->
+        <div class="md:hidden bg-slate-800 px-4 py-2 flex justify-around text-xs font-medium border-t border-slate-700">
+            <button onclick="switchTab('project-info')" id="mob-nav-project-info" class="mob-nav-btn text-blue-400 font-bold">المشروع</button>
+            <button onclick="switchTab('m365-licenses')" id="mob-nav-m365-licenses" class="mob-nav-btn text-slate-300">الرخص</button>
+            <button onclick="switchTab('survey')" id="mob-nav-survey" class="mob-nav-btn text-slate-300">الاستبيان</button>
+            <button onclick="switchTab('calculator')" id="mob-nav-calculator" class="mob-nav-btn text-slate-300">الحاسبة</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- TAB 1: Project Info -->
+        <section id="tab-project-info" class="tab-content space-y-8">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-10">
+                <div class="border-b border-slate-100 pb-6 mb-6">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-en="Project Information & Overview" data-ar="معلومات عن المشروع ومقدمته">معلومات عن المشروع ومقدمته</h2>
+                    <p class="text-slate-500 mt-1" data-en="Comprehensive framework for digital transformation and cloud security upgrade across ministries." data-ar="الإطار الشامل للتحول الرقمي ورفع مستويات الامن السيبراني في الوزارات">الإطار الشامل للتحول الرقمي ورفع مستويات الامن السيبراني في الوزارات</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50/50 border border-blue-100 p-6 rounded-xl">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3" data-en="Project Introduction" data-ar="مقدمة عن المشروع">مقدمة عن المشروع</h3>
+                        <p class="text-slate-700 leading-relaxed text-sm sm:text-base">تهدف وزارة الاقتصاد الرقمي والريادة إلى زيادة معايير الأمن السيبراني في الوزارات والعمل على حفظ درجات أمن المعلومات بأعلى المقاييس، بالإضافة إلى العمل على زيادة كفاءة موظفي الـ IT في الوزارات من جهة السيطرة والاستقلالية والإدارة المطلقة على بيئتهم والعمل على تطبيق أحدث معايير خدمات البريد الإلكتروني في بيئتهم.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-amber-50/60 border border-amber-200 p-5 rounded-xl">
+                            <h4 class="font-bold text-amber-900 mb-2">الوضع الراهن</h4>
+                            <p class="text-slate-700 text-sm leading-relaxed">بناءً على التصنيف التقني للوضع الراهن فإن البيئة الموجودة حالياً في أي وزارة هي عبارة عن نطاق فرعي (child domain) يتبع النطاق الرئيسي (Parent Domain) والذي يحتوي على مركزية خوادم البريد الإلكتروني المحلي والخدمات المشتركة كنظام تراسل، بالإضافة إلى وجود البيئة السحابية والتي بدأت باستضافة الخوادم للوزارات وحسب خطة التحول الرقمي.</p>
+                        </div>
+
+                        <div class="bg-emerald-50/60 border border-emerald-200 p-5 rounded-xl">
+                            <h4 class="font-bold text-emerald-900 mb-2">الوضع المستقبلي</h4>
+                            <p class="text-slate-700 text-sm leading-relaxed">بيئة دليل نشط (Active Directory) منفصلة لكل بيئة مع تحول خدمة البريد الإلكتروني إلى الخدمات السحابية 365.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 pt-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-4">كيفية سير عمل المشروع</h3>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                            <li class="bg-slate-50 p-3 rounded-lg border">1. بناء بيئة جديدة دليل نشط.</li>
+                            <li class="bg-slate-50 p-3 rounded-lg border">2. ترحيل المستخدمين إلى النطاق الجديد.</li>
+                            <li class="bg-slate-50 p-3 rounded-lg border">3. ترحيل أجهزة الموظفين باستخدام أداة رسمية معتمدة إلى النطاق الجديد.</li>
+                            <li class="bg-slate-50 p-3 rounded-lg border">4. ترحيل الخوادم إلى النطاق الجديد.</li>
+                            <li class="bg-slate-50 p-3 rounded-lg border">5. ترحيل حسابات البريد الإلكتروني إلى الخدمات السحابية 365.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-4">ماذا يتطلب من الوزارة المعنية</h3>
+                        <div class="space-y-3 text-sm text-slate-700">
+                            <div class="bg-indigo-50/50 p-3 rounded-lg border">الإلمام بالإعدادات الصحيحة للخدمات (مستخدمين وأجهزة وخوادم وحسابات بريد إلكتروني).</div>
+                            <div class="bg-indigo-50/50 p-3 rounded-lg border">التواصل مع مسؤولي التطبيقات المستضافة محلياً أو في الخدمات السحابية لمعرفة مدى تأثرها بالانتقال والإعدادات اللازمة لضمان عدم انقطاع العمل.</div>
+                            <div class="bg-slate-50 p-3 rounded-lg border text-xs text-slate-500">ملاحظة: ستعمل وزارة الاقتصاد الرقمي جاهدة للإجابة عن الاستفسارات وتقديم المشورة، وستتواصل رسمياً مع الوزارات قبل التنفيذ للتأكد من الجاهزية والاتفاق على المواعيد والكلف المالية.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: M365 Licenses -->
+        <section id="tab-m365-licenses" class="tab-content hidden space-y-6">
+            <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-xl shadow-sm text-sm text-amber-900">
+                <span class="font-bold block mb-1">ملاحظة هامة جداً:</span>
+                <p>الأرقام المذكورة هي أرقام تقديرية وربما تتأثر عند شراء الرخص بشكل رسمي. الأسعار سنوية لكل مستخدم غير شاملة لأي ضرائب أو رسوم خدمات. إصدارات Outlook المعتمدة رسمياً هي فقط: Office 2024 و Office 365 APP.</p>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="flex flex-wrap gap-2 bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+                <button onclick="filterLicenses('all')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-blue-600 text-white shadow-sm" data-cat="all">كل الرخص</button>
+                <button onclick="filterLicenses('email')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="email">باقات البريد</button>
+                <button onclick="filterLicenses('teams')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="teams">مع Teams</button>
+                <button onclick="filterLicenses('noteams')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="noteams">بدون Teams</button>
+                <button onclick="filterLicenses('enterprise')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="enterprise">Enterprise (>300)</button>
+                <button onclick="filterLicenses('apps')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="apps">برامج الأوفيس</button>
+                <button onclick="filterLicenses('copilot')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="copilot">Copilot AI</button>
+                <button onclick="filterLicenses('security')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="security">الهوية والأمان</button>
+                <button onclick="filterLicenses('backup')" class="lic-filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="backup">النسخ الاحتياطي</button>
+            </div>
+
+            <!-- Complete Licenses Grid -->
+            <div id="licenses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="email"><span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded">باقة بريد</span><h3 class="text-lg font-bold mt-3">Exchange Online Kiosk</h3><p class="text-2xl font-extrabold text-blue-600 mt-1">18 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">المساحة: 2 جيجابايت. مخصص للموظفين الميدانيين (هاتف ويب OWA).</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="email"><span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded">باقة بريد</span><h3 class="text-lg font-bold mt-3">Exchange Online Plan 1</h3><p class="text-2xl font-extrabold text-blue-600 mt-1">32 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">المساحة: 50GB + 50GB أرشيف + دعم Outlook المكتبي.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="email"><span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded">باقة بريد</span><h3 class="text-lg font-bold mt-3">Exchange Online Plan 2</h3><p class="text-2xl font-extrabold text-blue-600 mt-1">64 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">المساحة: 100GB + أرشيف غير محدود + Litigation Hold.</p></div>
+                
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="teams"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">مع Teams</span><h3 class="text-lg font-bold mt-3">M365 Business Basic</h3><p class="text-2xl font-extrabold text-emerald-600 mt-1">65 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">100GB بريد + 1TB OneDrive + تطبيقات الويب و Teams.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="teams"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">مع Teams</span><h3 class="text-lg font-bold mt-3">M365 Business Standard</h3><p class="text-2xl font-extrabold text-emerald-600 mt-1">115 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات سطح المكتب الكاملة (5 أجهزة) + Teams.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="teams"><span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">مع Teams</span><h3 class="text-lg font-bold mt-3">M365 Business Premium</h3><p class="text-2xl font-extrabold text-emerald-600 mt-1">190 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات كاملة + حماية متقدمة للأجهزة عبر Intune و Defender.</p></div>
+
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="noteams"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">بدون Teams</span><h3 class="text-lg font-bold mt-3">M365 Business Basic (No Teams)</h3><p class="text-2xl font-extrabold text-indigo-600 mt-1">42 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات ويب وبريد بدون Teams.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="noteams"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">بدون Teams</span><h3 class="text-lg font-bold mt-3">M365 Business Standard Without Teams</h3><p class="text-2xl font-extrabold text-indigo-600 mt-1">92 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات سطح المكتب بدون Teams.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="noteams"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">بدون Teams</span><h3 class="text-lg font-bold mt-3">M365 Business Standard Premium Without Teams</h3><p class="text-2xl font-extrabold text-indigo-600 mt-1">160 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات سطح المكتب وحماية متقدمة بدون Teams.</p></div>
+
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="enterprise"><span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded">Enterprise</span><h3 class="text-lg font-bold mt-3">Office 365 E1</h3><p class="text-2xl font-extrabold text-purple-600 mt-1">85 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات ويب وهاتف + Teams و SharePoint.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="enterprise"><span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded">Enterprise</span><h3 class="text-lg font-bold mt-3">Office 365 E3</h3><p class="text-2xl font-extrabold text-purple-600 mt-1">225 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات مكتب كاملة للمؤسسات الكبرى + أمان وامتثال متقدم.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="enterprise"><span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded">Enterprise</span><h3 class="text-lg font-bold mt-3">Office 365 E5</h3><p class="text-2xl font-extrabold text-purple-600 mt-1">350 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">أعلى مستويات الأمان واتصالات صوتية عبر Teams.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="enterprise"><span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded">Enterprise</span><h3 class="text-lg font-bold mt-3">Microsoft 365 E3</h3><p class="text-2xl font-extrabold text-purple-600 mt-1">335 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">يجمع O365 E3 مع Entra ID P1 وحماية الأجهزة والبريد.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="enterprise"><span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded">Enterprise</span><h3 class="text-lg font-bold mt-3">Microsoft 365 E5</h3><p class="text-2xl font-extrabold text-purple-600 mt-1">515 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">أقوى باقة مؤسسية مع Defender XDR و Entra ID P2.</p></div>
+
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="apps"><span class="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded">برامج الأوفيس</span><h3 class="text-lg font-bold mt-3">Office 2024 Standard</h3><p class="text-2xl font-extrabold text-teal-600 mt-1">360 دينار (مرة واحدة)</p><p class="text-sm text-slate-600 mt-2">ترخيص دائم لجهاز واحد (PC/Mac) - مدعوم لغاية 10-2029.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="apps"><span class="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded">برامج الأوفيس</span><h3 class="text-lg font-bold mt-3">M365 Apps for business</h3><p class="text-2xl font-extrabold text-teal-600 mt-1">90 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات سطح المكتب (بدون بريد Exchange) حتى 5 أجهزة.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="apps"><span class="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded">برامج الأوفيس</span><h3 class="text-lg font-bold mt-3">M365 Apps for enterprise</h3><p class="text-2xl font-extrabold text-teal-600 mt-1">125 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">تطبيقات سطح المكتب للمؤسسات الكبرى (بدون بريد Exchange).</p></div>
+
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="copilot"><span class="text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded">Copilot AI</span><h3 class="text-lg font-bold mt-3">M365 Standard with Teams + Copilot</h3><p class="text-2xl font-extrabold text-rose-600 mt-1">200 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">باقة Standard مع مساعد الذكاء الاصطناعي Microsoft Copilot.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="copilot"><span class="text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded">Copilot AI</span><h3 class="text-lg font-bold mt-3">M365 Premium with Teams + Copilot</h3><p class="text-2xl font-extrabold text-rose-600 mt-1">275 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">باقة Premium مع حماية متقدمة وتكامل Copilot.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="copilot"><span class="text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded">Copilot AI</span><h3 class="text-lg font-bold mt-3">Microsoft 365 Copilot Business</h3><p class="text-2xl font-extrabold text-rose-600 mt-1">180 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">إضافة لـ Business Standard أو Business Premium.</p></div>
+
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="security"><span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded">الأمان</span><h3 class="text-lg font-bold mt-3">Entra ID Plan 1 (Azure AD P1)</h3><p class="text-2xl font-extrabold text-amber-600 mt-1">60 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">MFA المتقدم و Conditional Access.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="security"><span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded">الأمان</span><h3 class="text-lg font-bold mt-3">Entra ID Plan 2 (Azure AD P2)</h3><p class="text-2xl font-extrabold text-amber-600 mt-1">90 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">حماية الهوية وحسابات PIM المميزة.</p></div>
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="security"><span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded">الأمان</span><h3 class="text-lg font-bold mt-3">Defender for Office 365 Plan 1</h3><p class="text-2xl font-extrabold text-amber-600 mt-1">18 دينار / سنة</p><p class="text-sm text-slate-600 mt-2">فحص الروابط والملفات الآمنة Safe Links & Attachments.</p></div>
+
+                <div class="license-card bg-white rounded-xl border border-slate-200 p-6 shadow-sm" data-category="backup"><span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded">نسخ احتياطي</span><h3 class="text-lg font-bold mt-3">Office 365 Backup Service</h3><p class="text-2xl font-extrabold text-cyan-600 mt-1">110 دينار / شهرياً لكل 1 TB</p><p class="text-sm text-slate-600 mt-2">نسخ احتياطي شامل لبيانات M365 (Exchange, SharePoint, OneDrive).</p></div>
+            </div>
+        </section>
+
+        <!-- TAB 3: Survey -->
+        <section id="tab-survey" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                <div class="flex justify-between items-center border-b pb-4">
+                    <h2 class="text-2xl font-bold text-slate-900">استبيان رخص مايكروسوفت (الأسئلة السبعة)</h2>
+                    <button onclick="resetSurvey()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                        إعادة ضبط الاستبيان
+                    </button>
+                </div>
+
+                <form id="survey-form" class="space-y-6">
+                    <!-- Q1 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">1. كم عدد الموظفين الذين سيحتاجون خدمة البريد الالكتروني؟</label>
+                        <div class="flex gap-4"><label><input type="radio" name="q1" value="less300" onchange="handleQ1(this)"> أقل من 300</label><label><input type="radio" name="q1" value="more300" onchange="handleQ1(this)"> أكثر من 300</label></div>
+                        <p id="q1-note" class="text-xs text-blue-600 font-medium hidden"></p>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">2. ما هي اصدارات الـ Outlook الموجودة في الوزارة؟</label>
+                        <div class="flex flex-col gap-2"><label><input type="radio" name="q2" value="old" onchange="handleQ2(this)"> 2021 أو أقل</label><label><input type="radio" name="q2" value="new" onchange="handleQ2(this)"> 2024 or 365 Business APP</label></div>
+                        <p id="q2-note" class="text-xs font-medium hidden"></p>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">3. هل هناك موظفون ميدانيون أو لا يوجد لديهم حواسيب، وتكتفي بمتابعة البريد عبر الويب/الموبايل؟</label>
+                        <div class="flex gap-4"><label><input type="radio" name="q3" value="yes" onchange="toggleQ3(true)"> نعم</label><label><input type="radio" name="q3" value="no" onchange="toggleQ3(false)"> لا</label></div>
+                        <div id="q3-options" class="hidden space-y-3 pt-3 border-t">
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>Exchange Online Kiosk (18 JOD)</span><div class="flex gap-2"><input type="number" id="q3-k" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('Exchange Online Kiosk', 18, 'q3-k')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>Office 2024 (360 JOD)</span><div class="flex gap-2"><input type="number" id="q3-o" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('Office 2024', 360, 'q3-o')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Apps for business (90 JOD)</span><div class="flex gap-2"><input type="number" id="q3-b" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Apps for business', 90, 'q3-b')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Apps for enterprise (125 JOD)</span><div class="flex gap-2"><input type="number" id="q3-e" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Apps for enterprise', 125, 'q3-e')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">4. هل هناك موظفون يحتاجون فقط خدمة البريد الالكتروني مع Outlook؟</label>
+                        <div class="flex gap-4"><label><input type="radio" name="q4" value="yes" onchange="toggleQ4(true)"> نعم</label><label><input type="radio" name="q4" value="no" onchange="toggleQ4(false)"> لا</label></div>
+                        <div id="q4-options" class="hidden space-y-3 pt-3 border-t">
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>Exchange Online Plan 1 (32 JOD)</span><div class="flex gap-2"><input type="number" id="q4-1" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('Exchange Online Plan 1', 32, 'q4-1')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>Exchange Online Plan 2 (64 JOD)</span><div class="flex gap-2"><input type="number" id="q4-2" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('Exchange Online Plan 2', 64, 'q4-2')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>Office 2024 (360 JOD)</span><div class="flex gap-2"><input type="number" id="q4-o" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('Office 2024', 360, 'q4-o')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Apps for business (90 JOD)</span><div class="flex gap-2"><input type="number" id="q4-b" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Apps for business', 90, 'q4-b')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Apps for enterprise (125 JOD)</span><div class="flex gap-2"><input type="number" id="q4-e" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Apps for enterprise', 125, 'q4-e')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">5. هل يحتاج الموظفون إلى تطبيقات سحابية وبريد بدون أجهزة أوفيس؟</label>
+                        <div class="flex gap-4"><label><input type="radio" name="q5" value="yes" onchange="toggleQ5(true)"> نعم</label><label><input type="radio" name="q5" value="no" onchange="toggleQ5(false)"> لا</label></div>
+                        <div id="q5-options" class="hidden space-y-3 pt-3 border-t">
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Business Basic with Teams (65 JOD)</span><div class="flex gap-2"><input type="number" id="q5-b1" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Business Basic with Teams', 65, 'q5-b1')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Business Basic without Teams (42 JOD)</span><div class="flex gap-2"><input type="number" id="q5-b2" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Business Basic without Teams', 42, 'q5-b2')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>Office 2024 (360 JOD)</span><div class="flex gap-2"><input type="number" id="q5-o" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('Office 2024', 360, 'q5-o')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Apps for business (90 JOD)</span><div class="flex gap-2"><input type="number" id="q5-b" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Apps for business', 90, 'q5-b')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Apps for enterprise (125 JOD)</span><div class="flex gap-2"><input type="number" id="q5-e" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Apps for enterprise', 125, 'q5-e')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">6. هل يحتاج الموظفون إلى تطبيقات سحابية وبريد مع متطلبات أوفيس على الأجهزة؟</label>
+                        <div class="flex gap-4"><label><input type="radio" name="q6" value="yes" onchange="toggleQ6(true)"> نعم</label><label><input type="radio" name="q6" value="no" onchange="toggleQ6(false)"> لا</label></div>
+                        <div id="q6-options" class="hidden space-y-3 pt-3 border-t">
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Business Standard with Teams (115 JOD)</span><div class="flex gap-2"><input type="number" id="q6-s1" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Business Standard with Teams', 115, 'q6-s1')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Standard with Teams + Copilot (200 JOD)</span><div class="flex gap-2"><input type="number" id="q6-c1" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Standard with Teams + Copilot', 200, 'q6-c1')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Business Standard Without Teams (92 JOD)</span><div class="flex gap-2"><input type="number" id="q6-qty" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Business Standard Without Teams', 92, 'q6-qty')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="space-y-3 bg-slate-50 p-5 rounded-xl border">
+                        <label class="font-bold block text-slate-800">7. تطبيقات سحابية وأوفيس مع خدمات الحماية المتقدمة من مايكروسوفت؟</label>
+                        <div class="flex gap-4"><label><input type="radio" name="q7" value="yes" onchange="toggleQ7(true)"> نعم</label><label><input type="radio" name="q7" value="no" onchange="toggleQ7(false)"> لا</label></div>
+                        <div id="q7-options" class="hidden space-y-3 pt-3 border-t">
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Business Premium with Teams (190 JOD)</span><div class="flex gap-2"><input type="number" id="q7-p1" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Business Premium with Teams', 190, 'q7-p1')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Premium with Teams + Copilot (275 JOD)</span><div class="flex gap-2"><input type="number" id="q7-c2" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Premium with Teams + Copilot', 275, 'q7-c2')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة</button></div></div>
+                            <div class="flex items-center justify-between bg-white p-3 rounded border"><span>M365 Business Standard Premium Without Teams (160 JOD)</span><div class="flex gap-2"><input type="number" id="q7-qty" min="0" value="0" class="w-20 border rounded px-2"><button type="button" onclick="addSurveyItem('M365 Business Standard Premium Without Teams', 160, 'q7-qty')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">إضافة للحاسبة</button></div></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- TAB 4: Calculator -->
+        <section id="tab-calculator" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-center border-b pb-4 gap-4">
+                    <h2 class="text-2xl font-bold text-slate-900">حاسبة المشروع وتكلفة الأجهزة والرخص</h2>
+                    <div class="flex gap-3">
+                        <button onclick="resetCalculator()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            إعادة ضبط الحاسبة
+                        </button>
+                        <button onclick="exportToExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-sm flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            تصدير إلى Excel خيالي
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Devices Input -->
+                <div class="bg-blue-50 border border-blue-200 p-5 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-bold text-blue-900">عدد الأجهزة لترحيل المشروع:</h3>
+                        <p class="text-xs text-slate-600">يتم حساب تكلفة البنية التحتية والأجهزة في بند واحد صافٍ.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <input type="number" id="devices-count" min="0" value="0" oninput="updateCalculator()" class="w-28 border border-blue-300 rounded-lg px-3 py-2 bg-white text-center font-bold">
+                        <span class="text-sm font-semibold text-slate-700">جهاز</span>
+                    </div>
+                </div>
+
+                <!-- Summary Breakdown -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                    <div class="bg-slate-50 p-4 rounded-xl border">
+                        <span class="text-xs text-slate-500 block">تكلفة البنية التحتية والأجهزة</span>
+                        <span id="infra-cost-display" class="text-xl font-bold text-slate-800">1200 JOD</span>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border">
+                        <span class="text-xs text-slate-500 block">إجمالي الرخص السنوية</span>
+                        <span id="licenses-cost-display" class="text-xl font-bold text-blue-600">0 JOD</span>
+                    </div>
+                </div>
+
+                <!-- Manual License Addition -->
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-slate-800">قائمة الرخص المضافة</h3>
+                        <div class="flex gap-2">
+                            <select id="manual-lic-name" class="border rounded px-3 py-1 text-sm max-w-xs">
+                                <option value="Exchange Online Kiosk">Exchange Online Kiosk (18)</option>
+                                <option value="Exchange Online Plan 1">Exchange Online Plan 1 (32)</option>
+                                <option value="Exchange Online Plan 2">Exchange Online Plan 2 (64)</option>
+                                <option value="M365 Business Basic">M365 Business Basic (65)</option>
+                                <option value="M365 Business Standard">M365 Business Standard (115)</option>
+                                <option value="M365 Business Premium">M365 Business Premium (190)</option>
+                                <option value="M365 Business Basic Without Teams">M365 Business Basic Without Teams (42)</option>
+                                <option value="M365 Business Standard Without Teams">M365 Business Standard Without Teams (92)</option>
+                                <option value="M365 Business Standard Premium Without Teams">M365 Business Standard Premium Without Teams (160)</option>
+                                <option value="Office 365 E1">Office 365 E1 (85)</option>
+                                <option value="Office 365 E3">Office 365 E3 (225)</option>
+                                <option value="Office 365 E5">Office 365 E5 (350)</option>
+                                <option value="Microsoft 365 E3">Microsoft 365 E3 (335)</option>
+                                <option value="Microsoft 365 E5">Microsoft 365 E5 (515)</option>
+                                <option value="Office 2024 Standard">Office 2024 Standard (360)</option>
+                                <option value="M365 Apps for business">M365 Apps for business (90)</option>
+                                <option value="M365 Apps for enterprise">M365 Apps for enterprise (125)</option>
+                                <option value="M365 Standard with Teams + Copilot">M365 Standard with Teams + Copilot (200)</option>
+                                <option value="M365 Premium with Teams + Copilot">M365 Premium with Teams + Copilot (275)</option>
+                                <option value="Microsoft 365 Copilot Business">Microsoft 365 Copilot Business (180)</option>
+                                <option value="Entra ID Plan 1">Entra ID Plan 1 (60)</option>
+                                <option value="Entra ID Plan 2">Entra ID Plan 2 (90)</option>
+                                <option value="Defender for Office 365 Plan 1">Defender for Office 365 Plan 1 (18)</option>
+                                <option value="Office 365 Backup Service">Office 365 Backup Service (1320)</option>
+                            </select>
+                            <input type="number" id="manual-lic-qty" min="1" value="1" class="w-16 border rounded px-2 py-1 text-center">
+                            <button onclick="addManualLicense()" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-bold">إضافة رخصة</button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 text-sm">
+                                    <th class="p-3">نوع الرخصة</th>
+                                    <th class="p-3">السعر السنوي للفرد (JOD)</th>
+                                    <th class="p-3">العدد (قابل للتعديل)</th>
+                                    <th class="p-3">الإجمالي السنوي (JOD)</th>
+                                    <th class="p-3">إجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calc-table-body" class="divide-y text-sm">
+                                <tr><td colspan="5" class="p-4 text-center text-slate-400">لا توجد رخص مضافة حالياً.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Grand Total -->
+                <div class="flex justify-between items-center bg-blue-600 text-white p-5 rounded-xl shadow-md">
+                    <span class="font-bold text-xl">التكلفة الإجمالية للمشروع:</span>
+                    <span id="grand-total" class="text-3xl font-extrabold">1200 JOD</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-12 border-t border-slate-800 text-center text-xs">
+        <p>© 2026 مشروع SGN - وزارة الاقتصاد الرقمي والريادة. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let cart = [];
+        const licensePrices = {
+            'Exchange Online Kiosk': 18,
+            'Exchange Online Plan 1': 32,
+            'Exchange Online Plan 2': 64,
+            'M365 Business Basic': 65,
+            'M365 Business Standard': 115,
+            'M365 Business Premium': 190,
+            'M365 Business Basic Without Teams': 42,
+            'M365 Business Standard Without Teams': 92,
+            'M365 Business Standard Premium Without Teams': 160,
+            'Office 365 E1': 85,
+            'Office 365 E3': 225,
+            'Office 365 E5': 350,
+            'Microsoft 365 E3': 335,
+            'Microsoft 365 E5': 515,
+            'Office 2024 Standard': 360,
+            'Office 2024': 360,
+            'M365 Apps for business': 90,
+            'M365 Apps for enterprise': 125,
+            'M365 Standard with Teams + Copilot': 200,
+            'M365 Premium with Teams + Copilot': 275,
+            'Microsoft 365 Copilot Business': 180,
+            'Entra ID Plan 1': 60,
+            'Entra ID Plan 2': 90,
+            'Defender for Office 365 Plan 1': 18,
+            'Office 365 Backup Service': 1320
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+            });
+            const activeNav = document.getElementById('nav-' + tabId);
+            if(activeNav) {
+                activeNav.classList.remove('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+                activeNav.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let currentLang = 'ar';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.setAttribute('lang', currentLang);
+            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            document.getElementById('lang-label').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.textContent = text;
+            });
+        }
+
+        function handleQ1(el) {
+            const note = document.getElementById('q1-note');
+            note.classList.remove('hidden');
+            note.textContent = el.value === 'less300' ? 'ملاحظة: يمكن اختيار أي نوع من أنواع الرخص.' : 'ملاحظة: لا يمكن اختيار أي باقة من Basic or Standard or Premium لنفس الرخصة أكثر من 300 نسخة.';
+        }
+
+        function handleQ2(el) {
+            const note = document.getElementById('q2-note');
+            note.classList.remove('hidden');
+            if(el.value === 'old') {
+                note.textContent = 'ملاحظة: يجب الحصول على نسخة رسمية معتمدة من مايكروسوفت.';
+                note.className = 'text-xs text-amber-600 font-medium';
+            } else {
+                note.textContent = 'ملاحظة: هذه النسخ معتمدة ولا يتطلب الحصول على نسخ أوفيس.';
+                note.className = 'text-xs text-emerald-600 font-medium';
+            }
+        }
+
+        function toggleQ3(show) { document.getElementById('q3-options').classList.toggle('hidden', !show); }
+        function toggleQ4(show) { document.getElementById('q4-options').classList.toggle('hidden', !show); }
+        function toggleQ5(show) { document.getElementById('q5-options').classList.toggle('hidden', !show); }
+        function toggleQ6(show) { document.getElementById('q6-options').classList.toggle('hidden', !show); }
+        function toggleQ7(show) { document.getElementById('q7-options').classList.toggle('hidden', !show); }
+
+        function resetSurvey() {
+            document.getElementById('survey-form').reset();
+            document.getElementById('q1-note').classList.add('hidden');
+            document.getElementById('q2-note').classList.add('hidden');
+            document.getElementById('q3-options').classList.add('hidden');
+            document.getElementById('q4-options').classList.add('hidden');
+            document.getElementById('q5-options').classList.add('hidden');
+            document.getElementById('q6-options').classList.add('hidden');
+            document.getElementById('q7-options').classList.add('hidden');
+            alert('تمت إعادة ضبط الاستبيان بنجاح!');
+        }
+
+        function resetCalculator() {
+            cart = [];
+            document.getElementById('devices-count').value = 0;
+            updateCalculator();
+            alert('تمت إعادة ضبط الحاسبة وتفريغ البيانات بنجاح!');
+        }
+
+        function filterLicenses(category) {
+            document.querySelectorAll('.lic-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-slate-100', 'text-slate-700');
+            event.target.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+
+            document.querySelectorAll('.license-card').forEach(card => {
+                card.style.display = (category === 'all' || card.getAttribute('data-category') === category) ? 'flex' : 'none';
+            });
+        }
+
+        function addSurveyItem(name, price, inputId) {
+            const qty = parseInt(document.getElementById(inputId).value) || 0;
+            if(qty <= 0) return alert('الرجاء إدخال عدد صحيح');
+
+            const existing = cart.find(item => item.name === name);
+            if(existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ name, price, qty });
+            }
+            updateCalculator();
+            alert('تمت الإضافة إلى الحاسبة بنجاح!');
+        }
+
+        function addManualLicense() {
+            const name = document.getElementById('manual-lic-name').value;
+            const qty = parseInt(document.getElementById('manual-lic-qty').value) || 1;
+            const price = licensePrices[name] || 50;
+
+            const existing = cart.find(item => item.name === name);
+            if(existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ name, price, qty });
+            }
+            updateCalculator();
+        }
+
+        function updateQty(index, newQty) {
+            cart[index].qty = Math.max(0, parseInt(newQty) || 0);
+            updateCalculator();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const devices = parseInt(document.getElementById('devices-count').value) || 0;
+            
+            const devicesCost = devices * 11;
+            const fixedCost = 1200;
+            let migrationCost = 0;
+            if(devices > 50) {
+                migrationCost = Math.ceil((devices - 50) / 50) * 600;
+            }
+            const totalInfra = devicesCost + fixedCost + migrationCost;
+
+            document.getElementById('infra-cost-display').textContent = totalInfra + ' JOD';
+
+            const tbody = document.getElementById('calc-table-body');
+            tbody.innerHTML = '';
+            
+            let licensesTotal = 0;
+            if(cart.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="p-4 text-center text-slate-400">لا توجد رخص مضافة حالياً.</td></tr>';
+            } else {
+                cart.forEach((item, index) => {
+                    const subtotal = item.price * item.qty;
+                    licensesTotal += subtotal;
+                    tbody.innerHTML += `
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-medium">${item.name}</td>
+                            <td class="p-3">${item.price} JOD</td>
+                            <td class="p-3"><input type="number" min="0" value="${item.qty}" onchange="updateQty(${index}, this.value)" class="w-20 border rounded px-2 py-1 text-center font-bold"></td>
+                            <td class="p-3 font-bold text-blue-600">${subtotal} JOD</td>
+                            <td class="p-3"><button onclick="removeItem(${index})" class="text-rose-500 hover:underline text-xs">حذف</button></td>
+                        </tr>
+                    `;
+                });
+            }
+
+            document.getElementById('licenses-cost-display').textContent = licensesTotal + ' JOD';
+            document.getElementById('grand-total').textContent = (totalInfra + licensesTotal) + ' JOD';
+        }
+
+        function exportToExcel() {
+            const devices = parseInt(document.getElementById('devices-count').value) || 0;
+            const infra = (devices * 11) + 1200 + (devices > 50 ? Math.ceil((devices - 50) / 50) * 600 : 0);
+            
+            let licTotal = 0;
+            let rowsXML = `<Row><Cell><Data ss:Type="String">البنية التحتية والأجهزة (${devices} جهاز)</Data></Cell><Cell><Data ss:Type="String">-</Data></Cell><Cell><Data ss:Type="Number">${devices}</Data></Cell><Cell><Data ss:Type="Number">${infra}</Data></Cell></Row>`;
+            
+            cart.forEach(item => {
+                const sub = item.price * item.qty;
+                licTotal += sub;
+                rowsXML += `<Row><Cell><Data ss:Type="String">${item.name}</Data></Cell><Cell><Data ss:Type="Number">${item.price}</Data></Cell><Cell><Data ss:Type="Number">${item.qty}</Data></Cell><Cell><Data ss:Type="Number">${sub}</Data></Cell></Row>`;
+            });
+
+            const grandTotal = infra + licTotal;
+
+            let excelXML = `<?xml version="1.0" encoding="UTF-8"?>
+            <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+             xmlns:o="urn:schemas-microsoft-com:office:office"
+             xmlns:x="urn:schemas-microsoft-com:office:excel"
+             xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+             xmlns:html="http://www.w3.org/TR/REC-html40">
+             <Styles>
+              <Style ss:ID="Header">
+               <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+               <Font ss:Bold="1" ss:Color="#FFFFFF"/>
+               <Interior ss:Color="#1E293B" ss:Pattern="Solid"/>
+              </Style>
+              <Style ss:ID="Title">
+               <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+               <Font ss:Bold="1" ss:Size="16" ss:Color="#1E293B"/>
+              </Style>
+              <Style ss:ID="Total">
+               <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+               <Font ss:Bold="1" ss:Color="#1E293B"/>
+               <Interior ss:Color="#F1F5F9" ss:Pattern="Solid"/>
+              </Style>
+              <Style ss:ID="Default">
+               <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+              </Style>
+             </Styles>
+             <Worksheet ss:Name="تقرير التكلفة">
+              <Table>
+               <Row><Cell ss:StyleID="Title" ss:Index="1"><Data ss:Type="String">تقرير تكلفة مشروع SGN - وزارة الاقتصاد الرقمي والريادة</Data></Cell></Row>
+               <Row></Row>
+               <Row>
+                <Cell ss:StyleID="Header"><Data ss:Type="String">البند / الرخصة</Data></Cell>
+                <Cell ss:StyleID="Header"><Data ss:Type="String">السعر الفردي (JOD)</Data></Cell>
+                <Cell ss:StyleID="Header"><Data ss:Type="String">العدد</Data></Cell>
+                <Cell ss:StyleID="Header"><Data ss:Type="String">الإجمالي السنوي (JOD)</Data></Cell>
+               </Row>
+               ${rowsXML}
+               <Row></Row>
+               <Row>
+                <Cell ss:StyleID="Total"><Data ss:Type="String">التكلفة الإجمالية للمشروع</Data></Cell>
+                <Cell ss:StyleID="Total"><Data ss:Type="String"></Data></Cell>
+                <Cell ss:StyleID="Total"><Data ss:Type="String"></Data></Cell>
+                <Cell ss:StyleID="Total"><Data ss:Type="Number">${grandTotal}</Data></Cell>
+               </Row>
+              </Table>
+             </Worksheet>
+            </Workbook>`;
+
+            const blob = new Blob([excelXML], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'SGN_Project_Cost_Report.xls';
+            a.click();
+        }
+
+        updateCalculator();
+    </script>
+</body>
+</html>
